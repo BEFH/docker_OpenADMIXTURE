@@ -1,8 +1,8 @@
 #!/usr/bin/env julia
 
-using LinearAlgebra, Random, SnpArrays
+using Random
 using OpenADMIXTURE
-using CSV, DelimitedFiles, Tables, Printf
+using CSV, Tables, Printf
 using ArgParse
 
 function format_output(mat)
@@ -94,7 +94,7 @@ function main()
     println("Final LogLikelihood was $(d.ll_new).")
     
     CSV.write(out_p, format_output(d.p), delim=" ", writeheader=false)
-    CSV.write(out_q, format_output(d.p), delim=" ", writeheader=false)
+    CSV.write(out_q, format_output(d.q), delim=" ", writeheader=false)
 end
 
 main()
